@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Runtime.InteropServices.WindowsRuntime;
 using TDDAssignment;
 
 namespace TDDAssignment_Test
@@ -51,6 +52,7 @@ namespace TDDAssignment_Test
         [TestMethod]
         public void NegativeNumsStringReturnsNegativeNotAllowed()
         {
+            
             try
             {
                 obj.add("-4");
@@ -58,8 +60,25 @@ namespace TDDAssignment_Test
             }
             catch (ArgumentException e)
             {
+                System.Console.Write(e.Message);
                 Assert.AreEqual("Negatives Not allowed: -4", e.Message);
             }
         }
+
+        //[TestMethod]
+        //public void MultipleNegativeNumsStringReturnsNegativeNotAllowed()
+        //{
+        //    try
+        //    {
+        //        obj.add("-1,2,-3");
+        //        Assert.Fail();
+        //    }
+        //    catch (ArgumentException e)
+        //    {
+        //        Assert.AreEqual("Negatives not allowed: -1 -3", e.Message);
+        //    }
+        //}
+
+
     }
 }
