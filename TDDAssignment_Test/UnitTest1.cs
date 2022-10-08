@@ -23,9 +23,28 @@ namespace TDDAssignment_Test
         }
 
         [TestMethod]
-        public void TwoNumStingReturnsSum()
+        public void TwoNumsStingReturnsSum()
         {
             Assert.AreEqual(7, obj.add("3,4"));
+        }
+
+        [TestMethod]
+        public void MultipleNumsStingReturnsSum()
+        {
+            Assert.AreEqual(10, obj.add("3,4,3"));
+        }
+
+        [TestMethod]
+        public void NewlinesBetweenNumsStingReturnsSum()
+        {
+            Assert.AreEqual(8, obj.add("3\n2,3"));
+        }
+
+        //Test Support different delimiters
+        [TestMethod]
+        public void MaltipleDelimitersBetweenNumsReturnsSum()
+        {
+            Assert.AreEqual(3, obj.add("//;\n1;2"));
         }
     }
 }

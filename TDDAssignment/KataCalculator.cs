@@ -10,29 +10,31 @@ namespace TDDAssignment
     {
         public int add(string numbers)
         {
+
             if (numbers == "")
-                        return 0;
-            
-            else if (numbers.Length == 0) 
+                return 0;
+
+            else if (numbers.Length == 0)
             {
+                var potentiallNegativeNums = new List<int>();
                 int numericValue;
                 bool IsNumber = int.TryParse(numbers, out numericValue);
-                
-                if (IsNumber)
-                {
+                if (IsNumber && numericValue > 0)
                     return numericValue;
-                }
-                return 0;
+                else if (numericValue < 0)
+                    throw new Exception("Negatives not allowed: " + String.Join(",", potentiallNegativeNums));
+                else
+                    return 0
             }
             else if (numbers.Length > 0)
             {
-                string[] numbersArray = numbers.Split(',');
+                string[] numbersArray = numbers.Split(new Char[] {',', '\n', '/', ';' });
                 List<int> intsList = new List<int>();
                 foreach (string n in numbersArray)
                 {
                     int numericValue;
                     bool IsNumber = int.TryParse(n, out numericValue);
-                    if (IsNumber)
+                    if (IsNumber )
                     {
                         intsList.Add(numericValue);
                     }
