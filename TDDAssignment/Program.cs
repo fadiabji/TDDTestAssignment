@@ -11,9 +11,9 @@ namespace TDDAssignment
     {
         static void Main(string[] args)
         {
-            //KataCalculator obj = new KataCalculator();
+            KataCalculator obj = new KataCalculator();
             //obj.add("3,4");
-            //WriteLine(obj.add("-4,-5"));
+            WriteLine(obj.add("-4,-5"));
         }
     }
 }

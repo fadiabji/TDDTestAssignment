@@ -58,26 +58,26 @@ namespace TDDAssignment_Test
                 obj.add("-4");
                 Assert.Fail();
             }
-            catch (ArgumentException e)
+            catch (Exception e)
             {
                 System.Console.Write(e.Message);
                 Assert.AreEqual("Negatives Not allowed: -4", e.Message);
             }
         }
 
-        //[TestMethod]
-        //public void MultipleNegativeNumsStringReturnsNegativeNotAllowed()
-        //{
-        //    try
-        //    {
-        //        obj.add("-1,2,-3");
-        //        Assert.Fail();
-        //    }
-        //    catch (ArgumentException e)
-        //    {
-        //        Assert.AreEqual("Negatives not allowed: -1 -3", e.Message);
-        //    }
-        //}
+        [TestMethod]
+        public void MultipleNegativeNumsStringReturnsNegativeNotAllowed()
+        {
+            try
+            {
+                obj.add("-1,-3");
+                Assert.Fail();
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual("Negatives Not allowed: -1,-3", e.Message);
+            }
+        }
 
 
     }
